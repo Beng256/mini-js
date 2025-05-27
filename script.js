@@ -47,6 +47,7 @@ let randomNumber = Math.floor(Math.random() * 100) + 1;
         randomNumber = Math.floor(Math.random() * 100) + 1;
         attempts = 0;
         maxAttempts = 5;
+        showTry();
         document.getElementById('guessInput').disabled = false;
         document.getElementById('guessInput').value = '';
         document.getElementById('message').textContent = ''; 

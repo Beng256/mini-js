@@ -1,11 +1,21 @@
-const level = localStorage.getItem('level');
+window.onload = function () {
+  const level = localStorage.getItem('level');
+console.log("Level:", level);
 let maxNumber = 0;
+const gameTitle = document.getElementById('gameTitle');
 if (level === 'easy') {
   maxNumber = 10;
   document.getElementById('hintBtn').disabled = true;
+  gameTitle.textContent = "Tebak Angka Level Mudah!";
 }
-if (level === 'medium') maxNumber = 50;
-if (level === 'hard') maxNumber = 100;
+if (level === 'medium') {
+  maxNumber = 50;
+  gameTitle.textContent = "Tebak Angka Level Medium!!";
+}
+if (level === 'hard') {
+  maxNumber = 100;
+  gameTitle.textContent = "Tebak Angka Level Sulit!!!";
+}
 let randomNumber = Math.floor(Math.random() * maxNumber) + 1;
 let attempts = 0;
 let maxAttempts = 5;
@@ -66,4 +76,5 @@ function hint() {
   maxAttempts = 3;
   let numHint = randomNumber % 10;
   hintMessage.textContent = `Ini angka belakang dari nomer jawaban: ${numHint}`;
+}
 }

@@ -1,20 +1,23 @@
-
 const level = localStorage.getItem('level');
 console.log("Level:", level);
 let maxNumber = 0;
 const gameTitle = document.getElementById('gameTitle');
+const gameInput = document.getElementById('guessInput');
 if (level === 'easy') {
-maxNumber = 10;
-document.getElementById('hintBtn').disabled = true;
-gameTitle.textContent = "Tebak Angka Level Mudah!";
+  maxNumber = 10;
+  gameInput.max = 10;
+  document.getElementById('hintBtn').disabled = true;
+  gameTitle.textContent = "Tebak Angka Level Mudah!";
 }
 if (level === 'medium') {
-maxNumber = 50;
-gameTitle.textContent = "Tebak Angka Level Medium!!";
+  maxNumber = 50;
+  gameInput.max = 50;
+  gameTitle.textContent = "Tebak Angka Level Medium!!";
 }
 if (level === 'hard') {
-maxNumber = 100;
-gameTitle.textContent = "Tebak Angka Level Sulit!!!";
+  maxNumber = 100;
+  gameInput.max = 100;
+  gameTitle.textContent = "Tebak Angka Level Sulit!!!";
 }
 let randomNumber = Math.floor(Math.random() * maxNumber) + 1;
 let attempts = 0;
@@ -25,14 +28,14 @@ const tryMessage = document.getElementById('numTry');
 showTry();
 
 function showTry() {
-  tryMessage.textContent = `Percobaan kamu: ${attempts}`;
+    tryMessage.textContent = `Percobaan kamu: ${attempts}`;
 }
-
+    
 
 function checkGuess() {
   const userGuess = Number(document.getElementById('guessInput').value);
   const message = document.getElementById('message');
-  
+    
   attempts++;
 
   if (attempts > maxAttempts) {
@@ -42,11 +45,11 @@ function checkGuess() {
     return;
   }
 
-if (userGuess === randomNumber) {
-  message.textContent = `Benar! Angkanya ${randomNumber}. Tebakanmu cuma butuh ${attempts} percobaan. Restart kalo mau mulai lagi`;
-  message.style.color = "lightgreen";
-  disableInput();
-  return;
+  if (userGuess === randomNumber) {
+    message.textContent = `Benar! Angkanya ${randomNumber}. Tebakanmu cuma butuh ${attempts} percobaan. Restart kalo mau mulai lagi`;
+    message.style.color = "lightgreen";
+    disableInput();
+    return;
   } else if (userGuess < randomNumber) {
     message.textContent = "Terlalu kecil. Coba lagi.";
     message.style.color = "orange";

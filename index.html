@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Selamat Datang di Game Tebak Angka</h1>
+  <p>Pilih tingkat kesulitan:</p>
+  <button onclick="startGame('easy')">Mudah</button>
+  <button onclick="startGame('medium')">Sedang</button>
+  <button onclick="startGame('hard')">Sulit</button>
+
+  <script>
+    function startGame(level) {
+      localStorage.setItem('level', level); 
+      window.location.href = 'game.html';   
+    }
+  </script>
+</body>
+</html>

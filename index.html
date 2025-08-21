@@ -5,12 +5,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Selamat Datang di Game Tebak Angka</h1>
+  <h1>Welcome to KafkaGuess!</h1>
   <p>Pilih tingkat kesulitan:</p>
-  <button onclick="startGame('easy')">Mudah</button>
-  <button onclick="startGame('medium')">Sedang</button>
-  <button onclick="startGame('hard')">Sulit</button>
-
+  <div class="btn-container">
+    <button onclick="startGame('easy')">Mudah</button>
+    <button onclick="startGame('medium')">Sedang</button>
+    <button onclick="startGame('hard')">Sulit</button>
+  </div>
   <script>
     function startGame(level) {
       localStorage.setItem('level', level); 

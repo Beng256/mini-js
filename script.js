@@ -1,13 +1,17 @@
 const level = localStorage.getItem('level');
-console.log("Level:", level);
-let maxNumber = 0;
+const hintMessage = document.getElementById('hint');
+const tryMessage = document.getElementById('numTry');
 const gameTitle = document.getElementById('gameTitle');
 const gameInput = document.getElementById('guessInput');
+console.log("Level:", level);
+let maxNumber = 0;
+hintMessage.textContent = "Pakai hint kalo mau mudah, tapi maks percobaan jadi 3 kali"
 if (level === 'easy') {
   maxNumber = 10;
   gameInput.max = 10;
   document.getElementById('hintBtn').disabled = true;
   gameTitle.textContent = "Tebak Angka Level Mudah!";
+  hintMessage.textContent = "Pakai hint di level mudah = Dongo!"
 }
 if (level === 'medium') {
   maxNumber = 50;
@@ -22,9 +26,6 @@ if (level === 'hard') {
 let randomNumber = Math.floor(Math.random() * maxNumber) + 1;
 let attempts = 0;
 let maxAttempts = 5;
-const hintMessage = document.getElementById('hint');
-hintMessage.textContent = "Pakai hint kalo mau mudah, tapi maks percobaan jadi 3 kali"
-const tryMessage = document.getElementById('numTry');
 showTry();
 
 function showTry() {
